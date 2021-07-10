@@ -5,7 +5,7 @@ version: "2.4"
 #- Ping Identity fullstack integrated demo
 #-
 #-     app    console            app                                       rest
-#-     2443   9000               6443                                      7443
+#-     2443   9000               5443                                      7443
 #-      |      |                  |                                         |
 #-   +----------------+   +---------------+                         +---------------+
 #-   |   PingAccess   |   | PingDelegator |                         | PingAuthorize |
@@ -25,7 +25,7 @@ version: "2.4"
 #-   +-----------------------+----------------------------------------------------------+
 #-   |  PingAccess           |  https://localhost:9000/                                 |
 #-   |  PingFederate         |  https://localhost:9999/pingfederate/app                 |
-#-   |  PingDelegator        |  https://localhost:6443/                                 |
+#-   |  PingDelegator        |  https://localhost:5443/                                 |
 #-   |  PingDirectory        |  https://localhost:8443/ (Server=pingdirectory:1636)     |
 #-   |  PingAuthorize        |  https://localhost:8443/ (Server=pingauthorize:1636)     |
 #-   +-----------------------+----------------------------------------------------------+
@@ -156,7 +156,7 @@ services:
     env_file:
       - ${HOME}/.pingidentity/devops
     ports:
-      - "6443:6443"
+      - "5443:5443"
     networks:
       - pingnet-dmz
 
