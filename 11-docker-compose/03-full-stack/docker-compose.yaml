@@ -39,8 +39,8 @@ services:
     tmpfs: /run/secrets
     environment:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
-      - SERVER_PROFILE_PATH=baseline/pingaccess
-      - SERVER_PROFILE_BRANCH=valueOfData
+    #  - SERVER_PROFILE_PATH=baseline/pingaccess
+    #  - SERVER_PROFILE_BRANCH=valueOfData
     env_file:
       # Configuration file created when setup.sh (Getting-started project root directory) is first run to source
       # devops user/key details for evaluation licenses and for docker image/git tags
@@ -52,7 +52,7 @@ services:
       - pingnet-dmz
     volumes:
       - pingaccess-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingaccess:/opt/in
+      - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingaccess:/opt/in
 
   pingauthorize:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingauthorize:${PING_IDENTITY_DEVOPS_TAG}
@@ -61,8 +61,8 @@ services:
     tmpfs: /run/secrets
     environment:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
-      - SERVER_PROFILE_PATH=baseline/pingauthorize
-      - SERVER_PROFILE_BRANCH=valueOfData
+    #  - SERVER_PROFILE_PATH=baseline/pingauthorize
+    #  - SERVER_PROFILE_BRANCH=valueOfData
     env_file:
       - ${HOME}/.pingidentity/devops
     ports:
@@ -73,7 +73,7 @@ services:
       - pingnet-internal
     volumes:
       - pingauthorize-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingauthorize:/opt/in
+      - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingauthorize:/opt/in
 
   pingfederate:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingfederate:${PING_IDENTITY_DEVOPS_TAG}
@@ -82,8 +82,8 @@ services:
     tmpfs: /run/secrets
     environment:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
-      - SERVER_PROFILE_PATH=baseline/pingfederate
-      - SERVER_PROFILE_BRANCH=valueOfData
+    #  - SERVER_PROFILE_PATH=baseline/pingfederate
+    #  - SERVER_PROFILE_BRANCH=valueOfData
     env_file:
       - ${HOME}/.pingidentity/devops
     ports:
@@ -94,7 +94,7 @@ services:
       - pingnet-internal
     volumes:
       - pingfederate-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingfederate:/opt/in
+      - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingfederate:/opt/in
 
   pingdirectory:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdirectory:${PING_IDENTITY_DEVOPS_TAG}
@@ -102,8 +102,8 @@ services:
     tmpfs: /run/secrets
     environment:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
-      - SERVER_PROFILE_PATH=baseline/pingdirectory
-      - SERVER_PROFILE_BRANCH=valueOfData
+    #  - SERVER_PROFILE_PATH=baseline/pingdirectory
+    #  - SERVER_PROFILE_BRANCH=valueOfData
     env_file:
       - ${HOME}/.pingidentity/devops
     ulimits:
@@ -121,7 +121,7 @@ services:
       - pingnet-internal
     volumes:
       - pingdirectory-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingdirectory:/opt/in
+      - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingdirectory:/opt/in
 
   pingdataconsole:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdataconsole:${PING_IDENTITY_DEVOPS_TAG}
@@ -136,8 +136,8 @@ services:
     tmpfs: /run/secrets
     environment:
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
-      - SERVER_PROFILE_PATH=baseline/pingcentral/dev-unsecure
-      - SERVER_PROFILE_BRANCH=valueOfData
+    #  - SERVER_PROFILE_PATH=baseline/pingcentral/dev-unsecure
+    #  - SERVER_PROFILE_BRANCH=valueOfData
       - PING_CENTRAL_BLIND_TRUST=true
       - PING_CENTRAL_LOG_LEVEL=DEBUG
     env_file:
@@ -148,7 +148,7 @@ services:
       - pingnet-internal
     volumes:
       - pingcentral-out:/opt/out
-    #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingcentral:/opt/in
+      - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingcentral:/opt/in
 
   pingdelegator:
     image: ${PING_IDENTITY_DEVOPS_REGISTRY}/pingdelegator:${PING_IDENTITY_DEVOPS_TAG}
@@ -157,8 +157,8 @@ services:
     environment:
       - PD_ENGINE_PUBLIC_PORT=1443
       - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
-      - SERVER_PROFILE_PATH=baseline/pingdelegator
-      - SERVER_PROFILE_BRANCH=valueOfData
+    #  - SERVER_PROFILE_PATH=baseline/pingdelegator
+    #  - SERVER_PROFILE_BRANCH=valueOfData
     env_file:
       - ${HOME}/.pingidentity/devops
     ports:
